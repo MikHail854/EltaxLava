@@ -1,6 +1,4 @@
-package ru.eltex.app.Lab2;
-
-import ru.eltex.app.lab1.Products;
+package ru.eltex.app.lab2;
 
 import java.sql.Date;
 import java.util.*;

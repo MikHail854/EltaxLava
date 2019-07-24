@@ -1,4 +1,4 @@
-package ru.eltex.app.Lab2;
+package ru.eltex.app.lab2;
 
 import java.util.Scanner;
 import java.util.UUID;

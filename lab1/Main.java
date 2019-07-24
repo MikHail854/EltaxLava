@@ -1,8 +1,8 @@
 package ru.eltex.app.lab1;
 
-import ru.eltex.app.Lab2.Credentails;
-import ru.eltex.app.Lab2.Orders;
-import ru.eltex.app.Lab2.ShoppingCart;
+import ru.eltex.app.lab2.Credentails;
+import ru.eltex.app.lab2.Orders;
+import ru.eltex.app.lab2.ShoppingCart;
 
 import java.util.Scanner;
 

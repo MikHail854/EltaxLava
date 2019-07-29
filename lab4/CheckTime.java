@@ -4,7 +4,7 @@ import ru.eltex.app.lab2.Orders;
 
 public class CheckTime extends ACheck {
 
-    CheckTime(Orders orders){
+    public CheckTime(Orders orders, long pause){
         super(orders);
         this.pause = pause;
     }

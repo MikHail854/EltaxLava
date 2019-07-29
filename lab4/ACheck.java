@@ -2,13 +2,16 @@ package ru.eltex.app.lab4;
 
 import ru.eltex.app.lab2.Orders;
 
-public class ACheck implements Runnable {
+abstract public class ACheck implements Runnable {
 
     public boolean fRun = true;
+    public long pause = 3000;
     private Orders orders;
 
 
-    ACheck
+    ACheck(Orders orders){
+        this.orders = orders;
+    }
 
     public Orders getOrders() {
         return orders;
@@ -18,8 +21,4 @@ public class ACheck implements Runnable {
         this.orders = orders;
     }
 
-    @Override
-    public void run() {
-
-    }
 }

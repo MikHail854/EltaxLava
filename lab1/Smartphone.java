@@ -7,7 +7,7 @@ public class Smartphone extends Products{
     private String typeSIMCard;
     private String amountSIM;
 
-    Smartphone() {
+    public Smartphone() {
         CounterObject++;
         ID = UUID.randomUUID();
         this.name = "";

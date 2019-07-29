@@ -8,7 +8,7 @@ public class TheTablet extends Products{
     private String videoProcessor;
     private String screenResolution;
 
-    TheTablet() {
+    public TheTablet() {
         CounterObject++;
         ID = UUID.randomUUID();
         this.name = "";

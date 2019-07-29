@@ -7,8 +7,10 @@ import java.util.UUID;
 public abstract class Products implements ICrudAction {
 
     UUID ID;
-    protected String name; //имя
-    protected int price; // цена
+    public String name; //имя
+    public int price; // цена
+    /*protected String name; //имя
+    protected int price; // цена*/
     protected int numerator; // Остаток товара на складе(счетчик товаров)
     protected String firm; // фирма
     protected String model; // модель

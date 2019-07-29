@@ -17,11 +17,9 @@ public class Main {
         Credentails user = new Credentails();
         System.out.println("\nМеню:\n1.Телефон\n2.Смартфон\n3.Планшет\n");
         int choice = scanner.nextInt();
-
         if (choice == 1) {
             System.out.println("Введите желаемое кол-во товара: ");
             int Object1 = scanner.nextInt();
-
             Phone[] phone = new Phone[Object1];
             for (int i = 0; i < Object1; i++) {
                 phone[i] = new Phone();
@@ -48,7 +46,6 @@ public class Main {
             System.out.println("Введите желаемое кол-во товара: ");
             int Object2 = scanner.nextInt();
             Smartphone[] smartphone = new Smartphone[Object2];
-
             for (int i = 0; i < Object2; i++) {
                 smartphone[i] = new Smartphone();
                 smartphone[i].create();
@@ -69,13 +66,11 @@ public class Main {
                 orders.show();
                 System.out.println("Проверка: " + cart.isExistsUUID(smartphone[0].getUUID()));
             }
-
         }
         if (choice == 3) {
             System.out.println("Введите желаемое кол-во товара: ");
             int Object3 = scanner.nextInt();
             TheTablet[] TheTablet = new TheTablet[Object3];
-
             for (int i = 0; i < Object3; i++) {
                 TheTablet[i] = new TheTablet();
                 TheTablet[i].create();
@@ -102,4 +97,3 @@ public class Main {
 
     }
 }
-

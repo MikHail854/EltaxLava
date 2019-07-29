@@ -12,10 +12,9 @@ public class ShoppingCart <T extends Products> {
     private Set<UUID> uuids;
 
     public ShoppingCart(){
-        this.cart = new LinkedList<>();
+        this.cart = Collections.synchronizedList(new LinkedList<T>());
         this.uuids = new HashSet<>();
     }
-
 
     public boolean add(T products){
         uuids.add(products.getUUID());
@@ -27,8 +26,14 @@ public class ShoppingCart <T extends Products> {
     }
 
     public void show(){
-        for (Products val: cart){
+        for (T val: cart){
             val.read();
+        }
+    }
+
+    public void show_short(){
+        for (T val: cart){
+            System.out.println(val.name+"("+val.price+")");
         }
     }
 

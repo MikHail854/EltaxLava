@@ -5,7 +5,7 @@ import java.util.UUID;
 public class Phone extends Products{
     private String typeOfShell;
 
-    Phone() {
+    public Phone() {
         CounterObject++;
         ID = UUID.randomUUID();
         this.name = "";

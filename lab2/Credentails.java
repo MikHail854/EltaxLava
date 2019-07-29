@@ -26,6 +26,13 @@ public class Credentails{
         this.email = scanner.nextLine();
     }
 
+    public Credentails(String firstname, String lastname, String middlename, String email){
+        firstname = firstname;
+        lastname = lastname;
+        middlename = middlename;
+        this.email = email;
+    }
+
     public void show(){
         System.out.println("Покупатель");
         System.out.println("ID = " + ID);

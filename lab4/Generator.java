@@ -23,7 +23,7 @@ public class Generator extends ACheck{
             ShoppingCart cart = new ShoppingCart<>();
             switch (i){
                 case 0:
-                    int p = (int)(Math.random()*2);
+                    int p = (int)(Math.random()*3);
                     product = new Phone[p];
                     for (int j = 0; j < p; j++){
                         product[j] = new Phone();
@@ -32,7 +32,7 @@ public class Generator extends ACheck{
                     }
                     break;
                 case 1:
-                    int d = (int)(Math.random()*2);
+                    int d = (int)(Math.random()*3);
                     product = new Smartphone[d];
                     for (int k = 0; k < d; k++){
                         product[k] = new Smartphone();
@@ -40,7 +40,7 @@ public class Generator extends ACheck{
                         cart.add(product[k]);
                     }
                 case 2:
-                    int m = (int)(Math.random()*2);
+                    int m = (int)(Math.random()*3);
                     product = new TheTablet[m];
                     for (int t = 0; t < m; t++){
                         product[t] = new TheTablet();

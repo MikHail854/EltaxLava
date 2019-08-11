@@ -18,6 +18,7 @@ public class Controller {
         ShoppingCart<Products> cart = new ShoppingCart<>();
 
         int numObj = 0;
+
         if (choice == 1){
             System.out.println("Сколько товаров требуется?");
             numObj = scanner.nextInt();
@@ -52,7 +53,7 @@ public class Controller {
             }
         }
 
-        System.out.println("\nКол-во товара:" + Products.CounterObject);
+        System.out.println("\nКол-во товара: " + Products.CounterObject);
         System.out.println("\n1.Оформить заказ\n2.Выход");
         int choice2 = scanner.nextInt();
         if (choice2 == 1){

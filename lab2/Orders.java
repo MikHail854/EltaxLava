@@ -1,21 +1,23 @@
 package ru.eltex.app.lab2;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+public class Orders <T extends Order> implements Serializable {
 
-
-public class Orders <T extends Order> {
-
-    private List<T> orders;
-    private Map<Date, T> dateOrder;
+    private ArrayList<T> orders;
+    private TreeMap<Date, T> dateOrder;
 
     public Orders(){
-        this.orders = Collections.synchronizedList(new ArrayList<>());
+        //this.orders = Collections.synchronizedList(new ArrayList<>());
+        this.orders = new ArrayList<T>();
         this.dateOrder = new TreeMap<>();
+    }
+
+    public Orders(ArrayList<T> list,TreeMap<Date, T> createTime){
+        this.orders = list;
+        this.dateOrder = createTime;
     }
 
     void add (T obj){
@@ -30,7 +32,7 @@ public class Orders <T extends Order> {
         Order order = new Order(cart, user);
         orders.add((T) order);
         dateOrder.put(order.getDateCreate(), (T) order);
-        cart.show_short();
+       // cart.show_short();
     }
 
     public void checkTime(){

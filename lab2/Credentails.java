@@ -1,10 +1,11 @@
 package ru.eltex.app.lab2;
 
+import java.io.Serializable;
 import java.util.Scanner;
 import java.util.UUID;
 
 
-public class Credentails{
+public class Credentails implements Serializable {
 
     UUID ID;
     private String firstname;
@@ -13,7 +14,7 @@ public class Credentails{
     private String email;
 
 
-    public Credentails(){
+   /* public Credentails(){
         ID = UUID.randomUUID();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Выполни регистрацию для начала покупок:\nФамилия: ");
@@ -24,9 +25,10 @@ public class Credentails{
         this.middlename = scanner.nextLine();
         System.out.println("Email: ");
         this.email = scanner.nextLine();
-    }
+    }*/
 
     public Credentails(String firstname, String lastname, String middlename, String email){
+        ID = UUID.randomUUID();
         firstname = firstname;
         lastname = lastname;
         middlename = middlename;

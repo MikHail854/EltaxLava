@@ -1,18 +1,20 @@
 package ru.eltex.app.lab2;
 
+import java.io.Serializable;
 import java.util.*;
 
 import ru.eltex.app.lab1.Products;
 
 import java.util.LinkedList;
 
-public class ShoppingCart <T extends Products> {
+public class ShoppingCart <T extends Products> implements Serializable {
 
     private List<T> cart;
     private Set<UUID> uuids;
 
     public ShoppingCart(){
-        this.cart = Collections.synchronizedList(new LinkedList<T>());
+        //this.cart = Collections.synchronizedList(new LinkedList<T>());
+        this.cart = new ArrayList<>();
         this.uuids = new HashSet<>();
     }
 
@@ -31,12 +33,12 @@ public class ShoppingCart <T extends Products> {
         }
     }
 
-    public void show_short(){
+  /*  public void show_short(){
         for (T val: cart){
             System.out.println(val.name+"("+val.price+")");
         }
     }
-
+*/
     public boolean isExistsUUID(UUID id){
         return uuids.contains(id);
     }

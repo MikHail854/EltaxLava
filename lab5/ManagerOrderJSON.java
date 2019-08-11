@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import ru.eltex.app.lab1.Products;
 import ru.eltex.app.lab2.Order;
 import ru.eltex.app.lab2.Orders;
 
@@ -22,8 +23,8 @@ public class ManagerOrderJSON extends AManageOrder{
 
     public ManagerOrderJSON(){
         final GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Order.class, new OrderDeserializer())
-                .registerTypeAdapter(Orders.class, new OrdersSerializer())
+        gsonBuilder.registerTypeAdapter(Products.class, new ProductDeserializer())
+                .registerTypeAdapter(Order.class, new OrderDeserializer())
                 .registerTypeAdapter(Orders.class, new OrdersDeserializer());
 
         json = gsonBuilder.setPrettyPrinting().create();

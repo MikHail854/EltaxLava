@@ -78,7 +78,7 @@ public class Controller {
             ManagerOrderJSON json = new ManagerOrderJSON();
             Order order3 = new Order(cart, user2);
             json.saveById(order3);
-            Order example3 = json.readById(orders.getUUID());
+            Order example3 = json.readById(order3.getUUID());
             System.out.println("Order из JSON --------------------");
             example3.show();
 

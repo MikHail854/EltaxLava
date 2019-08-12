@@ -30,8 +30,8 @@ public class Smartphone extends Products{
         this.price = price;
         this.firm = firm;
         this.os = os;
-        this.typeSIMCard = typeSIMCard;
-        this.amountSIM = amountSIM;
+        this.typeSIMCard = TypeSIMCard;
+        this.amountSIM = AmountSIM;
     }
 
     @Override

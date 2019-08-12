@@ -2,7 +2,7 @@ package ru.eltex.app.lab1;
 
 import java.util.UUID;
 
-public class Phone extends Products{
+public class Phone extends Products {
     private String typeOfShell;
 
     public Phone() {
@@ -27,7 +27,7 @@ public class Phone extends Products{
         this.price = price;
         this.firm = firm;
         this.os = os;
-        this.typeOfShell = typeOfShell;
+        this.typeOfShell = TypeOfShell;
     }
 
     @Override

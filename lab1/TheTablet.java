@@ -31,8 +31,8 @@ public class TheTablet extends Products{
         this.price = price;
         this.firm = firm;
         this.os = os;
-        this.videoProcessor = videoProcessor;
-        this.screenResolution = screenResolution;
+        this.videoProcessor = VideoProcessor;
+        this.screenResolution = ScreenResolution;
     }
 
     @Override

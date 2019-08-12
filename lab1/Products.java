@@ -1,10 +1,11 @@
 package ru.eltex.app.lab1;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.UUID;
 
-public abstract class Products implements ICrudAction {
+public abstract class Products implements ICrudAction, Serializable {
 
     UUID ID;
     public String name; //имя

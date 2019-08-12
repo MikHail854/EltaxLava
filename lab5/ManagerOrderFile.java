@@ -7,8 +7,10 @@ import java.io.*;
 import java.util.UUID;
 
 /**
- * класс ManagerOrderFile для хранения закозов в виде двоичного файла
+ *   класс ManagerOrderFile для хранения закозов в виде двоичного файла
  */
+
+
 
 public final class ManagerOrderFile extends AManageOrder{
 

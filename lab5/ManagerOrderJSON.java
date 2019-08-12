@@ -18,7 +18,7 @@ import java.util.UUID;
 
 public class ManagerOrderJSON extends AManageOrder{
 
-    public static final String JSON_PATH = "/home/mikhail/IdeaProjects/JavaLabVar2/target/result.bin";
+    public static final String JSON_PATH = "/home/mikhail/IdeaProjects/JavaLabVar2/target/result.json";
     private final Gson json;
 
     public ManagerOrderJSON(){
@@ -46,8 +46,8 @@ public class ManagerOrderJSON extends AManageOrder{
             Type type = new TypeToken<Order>(){
             }.getType();
             order = json.fromJson(reader, type);
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
         }
         return order;
     }
@@ -60,14 +60,14 @@ public class ManagerOrderJSON extends AManageOrder{
     @Override
     public void saveById(Order order) {
         try (FileWriter writer = new FileWriter(JSON_PATH)) {
-            if (!target.exists()) {
+            if (target.exists()) {
                 json.toJson(order, writer);
             }else {
                 System.out.println("File is not exist. Trying to create new file");
                 target.createNewFile();
             }
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
         }
     }
 
@@ -85,8 +85,8 @@ public class ManagerOrderJSON extends AManageOrder{
             Type type = new TypeToken<Orders<Order>>(){
             }.getType();
             orders = json.fromJson(reader, type);
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
         }
         return orders;
     }
@@ -99,14 +99,14 @@ public class ManagerOrderJSON extends AManageOrder{
     @Override
     public void saveAll(Orders orders) {
         try (FileWriter writer = new FileWriter(JSON_PATH)) {
-            if (!target.exists()) {
+            if (target.exists()) {
                 json.toJson(orders, writer);
             }else {
                 System.out.println("File is not exist. Trying to create new file");
                 target.createNewFile();
             }
-        }catch (IOException e){
-            e.printStackTrace();
+        }catch (IOException ex){
+            ex.printStackTrace();
         }
 
     }

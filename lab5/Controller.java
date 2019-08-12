@@ -18,38 +18,37 @@ public class Controller {
         ShoppingCart<Products> cart = new ShoppingCart<>();
 
         int numObj = 0;
-
         if (choice == 1){
             System.out.println("Сколько товаров требуется?");
             numObj = scanner.nextInt();
-            Phone[] products = new Phone[numObj];
+            Phone[] product = new Phone[numObj];
             for (int i = 0; i < numObj; i++){
-                products[i] = new Phone();
-                products[i].create();
-                products[i].read();
-                cart.add(products[i]);
+                product[i] = new Phone();
+                product[i].create();
+                product[i].read();
+                cart.add(product[i]);
             }
         }
         if (choice == 2){
             System.out.println("Сколько товаров требуется?");
             numObj = scanner.nextInt();
-            Smartphone[] products = new Smartphone[numObj];
+            Smartphone[] product = new Smartphone[numObj];
             for (int i = 0; i < numObj; i++){
-                products[i] = new Smartphone();
-                products[i].create();
-                products[i].read();
-                cart.add(products[i]);
+                product[i] = new Smartphone();
+                product[i].create();
+                product[i].read();
+                cart.add(product[i]);
             }
         }
         if (choice == 3){
             System.out.println("Сколько товаров требуется?");
             numObj = scanner.nextInt();
-            TheTablet[] products = new TheTablet[numObj];
+            TheTablet[] product = new TheTablet[numObj];
             for (int i = 0; i < numObj; i++){
-                products[i] = new TheTablet();
-                products[i].create();
-                products[i].read();
-                cart.add(products[i]);
+                product[i] = new TheTablet();
+                product[i].create();
+                product[i].read();
+                cart.add(product[i]);
             }
         }
 
@@ -86,7 +85,7 @@ public class Controller {
             System.out.println("Test Json2");
             json.saveAll(orders);
             Orders example = json.readAll();
-            System.out.println("Order из JSON --------------------");
+            System.out.println("Orders из JSON --------------------");
             example.show();
         }else {
             return;

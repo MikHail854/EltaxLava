@@ -13,11 +13,11 @@ public class ProductDeserializer implements JsonDeserializer<Products> {
     @Override
     public Products deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jDContext) throws JsonParseException {
         JsonObject jsonObject = jsonElement.getAsJsonObject();
-        if (jsonObject.has("typeBox")){
+        if (jsonObject.has("typeOfShell")){
             return jDContext.deserialize(jsonObject, Phone.class);
-        }else if (jsonObject.has("greinType")){
+        }else if (jsonObject.has("typeSIMCard")){
             return jDContext.deserialize(jsonObject, Smartphone.class);
-        }else if (jsonObject.has("type")){
+        }else if (jsonObject.has("videoProcessor")){
             return jDContext.deserialize(jsonObject, TheTablet.class);
         }
         return null;

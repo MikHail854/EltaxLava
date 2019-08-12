@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.UUID;
 
-public class Order implements Serializable {
+public class Order implements Serializable{
 
     private UUID id;
     private ShoppingCart cart;
@@ -45,7 +45,7 @@ public class Order implements Serializable {
         this.status = status;
     }
 
-    public boolean cheakInterval(long time){
+    public boolean checkInterval(long time){
         if ((dateCreate.getTime() + timeWaiting) < time){
             return true;
         } else {
@@ -55,8 +55,9 @@ public class Order implements Serializable {
 
     public void show(){
         System.out.println("Ваш заказ");
-        cart.show();
+        //cart.show();
         user.show();
+        System.out.println();
         System.out.println("Status = " + status);
         System.out.println("Date Create = " + dateCreate);
         System.out.println("Time Waiting = " + timeWaiting);

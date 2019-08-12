@@ -5,12 +5,16 @@ import java.util.*;
 
 import ru.eltex.app.lab1.Products;
 
-import java.util.LinkedList;
+/**
+ * Класс коллекция
+ *
+ * @param <T> extends Products
+ */
 
 public class ShoppingCart <T extends Products> implements Serializable {
 
-    private List<T> cart;
-    private Set<UUID> uuids;
+    private List<T> cart;//Коллекция для хранения объектов в классе «корзина»
+    private Set<UUID> uuids;//Коллекция для хранения и поиска уникальных идентификаторов
 
     public ShoppingCart(){
         //this.cart = Collections.synchronizedList(new LinkedList<T>());
@@ -28,10 +32,13 @@ public class ShoppingCart <T extends Products> implements Serializable {
     }
 
     public void show(){
-        for (T val: cart){
+        /*for (T val: cart){
             val.read();
-        }
+        }*/
+        cart.get(1).read();
+        //System.out.println(cart.get(1));
     }
+
 
   /*  public void show_short(){
         for (T val: cart){

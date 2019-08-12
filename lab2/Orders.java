@@ -41,7 +41,7 @@ public class Orders <T extends Order> implements Serializable {
             while (it.hasNext()){
                 Order order = (Order) it.next();
                 if(order.getStatus() == OrderStatus.WAITING &&
-                        order.cheakInterval(System.currentTimeMillis())){
+                        order.checkInterval(System.currentTimeMillis())){
                     order.setStatus(OrderStatus.DONE);
                     System.out.println("Проверка заказа...");
                 }

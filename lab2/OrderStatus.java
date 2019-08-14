@@ -1,6 +1,6 @@
 package ru.eltex.app.lab2;
 
-public enum OrderStatus {
+public enum OrderStatus  {
     WAITING,
     DONE
 }

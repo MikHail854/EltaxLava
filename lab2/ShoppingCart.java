@@ -18,6 +18,7 @@ public class ShoppingCart <T extends Products> implements Serializable {
 
     public ShoppingCart(){
         //this.cart = Collections.synchronizedList(new LinkedList<T>());
+       // this.cart = Collections.synchronizedList(new ArrayList<T>());
         this.cart = new ArrayList<>();
         this.uuids = new HashSet<>();
     }
@@ -32,11 +33,11 @@ public class ShoppingCart <T extends Products> implements Serializable {
     }
 
     public void show(){
-        /*for (T val: cart){
+        for (T val: cart){
             val.read();
-        }*/
-        cart.get(1).read();
-        //System.out.println(cart.get(1));
+        }
+        //cart.get(1).read();
+       // System.out.println(cart.get(1));
     }
 
 

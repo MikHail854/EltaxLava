@@ -29,9 +29,9 @@ public class Credentails implements Serializable {
 
     public Credentails(String firstname, String lastname, String middlename, String email){
         ID = UUID.randomUUID();
-        firstname = firstname;
-        lastname = lastname;
-        middlename = middlename;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.middlename = middlename;
         this.email = email;
     }
 

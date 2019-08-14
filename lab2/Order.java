@@ -55,9 +55,8 @@ public class Order implements Serializable{
 
     public void show(){
         System.out.println("Ваш заказ");
-        //cart.show();
+        cart.show();
         user.show();
-        System.out.println();
         System.out.println("Status = " + status);
         System.out.println("Date Create = " + dateCreate);
         System.out.println("Time Waiting = " + timeWaiting);

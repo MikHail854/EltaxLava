@@ -83,7 +83,7 @@ public class ClientMain {
      */
     public void AcceptAlertUDP(){
         DatagramPacket packet = new DatagramPacket(new byte[1024], 1024);
-        try (DatagramSocket socket = new DatagramSocket(acceptport)){
+        try (DatagramSocket socket = new DatagramSocket(CONFIRMPORT)){
             System.out.println("Ждем подтверждение на порту " + acceptport + "...");
             socket.receive(packet);
         }catch (SocketException e){

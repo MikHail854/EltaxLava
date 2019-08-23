@@ -1,5 +1,7 @@
 package ru.eltex.app.lab2;
 
+import ru.eltex.app.lab6.Server.UDP;
+
 import java.io.Serializable;
 import java.net.InetAddress;
 import java.sql.Date;
@@ -72,6 +74,21 @@ public void offer(ShoppingCart cart, Credentials credentials, InetAddress addres
                     System.out.println("Проверка заказа...");
                 }
 
+            }
+        }
+    }
+    public void StatusAlert() {
+        synchronized(orders) {
+            Iterator it = orders.iterator();
+            while(it.hasNext()) {
+                Order order = (Order) it.next();
+                if (order.getStatus() == OrderStatus.WAITING &&
+                        order.checkInterval(System.currentTimeMillis())) {
+                    order.setStatus(OrderStatus.DONE);
+                    UDP udp = new UDP(order.getDateCreate(),"127.0.0.255", 7777);
+                    udp.start();
+                    System.out.println("Checking orders...");
+                }
             }
         }
     }

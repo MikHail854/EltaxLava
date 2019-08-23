@@ -7,33 +7,32 @@ import java.io.*;
 import java.util.UUID;
 
 /**
- *   класс ManagerOrderFile для хранения закозов в виде двоичного файла
+ * класс ManagerOrderFile для хранения закозов в виде двоичного файла
  */
 
 
+public final class ManagerOrderFile extends AManageOrder {
 
-public final class ManagerOrderFile extends AManageOrder{
+    public static final String BIN_PATH = "/home/mikhail/IdeaProjects/JavaLabVar2/target/binary.bin";
 
-    public static  final String BIN_PATH = "/home/mikhail/IdeaProjects/JavaLabVar2/target/binary.bin";
-
-    ManagerOrderFile(){
+    ManagerOrderFile() {
         target = new File(BIN_PATH);
     }
 
     @Override
     public Order readById(UUID id) {
         Order order = null;
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(BIN_PATH))){
-                if (!target.exists()){
-                    return null;
-                }else {
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(BIN_PATH))) {
+            if (!target.exists()) {
+                return null;
+            } else {
                 order = (Order) objectInputStream.readObject();
-                if (!order.getUUID().equals(id)){
+                if (!order.getUUID().equals(id)) {
                     order = null;
                 }
             }
-            }catch (Exception ex){
-        ex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
         return order;
     }
@@ -54,29 +53,29 @@ public final class ManagerOrderFile extends AManageOrder{
 
     @Override
     public Orders readAll() {
-            Orders orders = null;
-            try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(BIN_PATH))) {
-                if (!target.exists()){
-                    return null;
-                }
-                orders = (Orders) objectInputStream.readObject();
-            }catch (Exception ex){
-                ex.printStackTrace();
+        Orders orders = null;
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(BIN_PATH))) {
+            if (!target.exists()) {
+                return null;
             }
+            orders = (Orders) objectInputStream.readObject();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         return orders;
     }
 
     @Override
     public void saveAll(Orders orders) {
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream((BIN_PATH)))) {
-            if (target.exists()){
+            if (target.exists()) {
                 objectOutputStream.writeObject(orders);
                 objectOutputStream.flush();
-            }else {
+            } else {
                 System.out.println("File is not exist. Trying to create new file");
                 target.createNewFile();
             }
-        }catch (IOException ex){
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
     }

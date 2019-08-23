@@ -13,7 +13,6 @@ public class Generator extends ACheck {
         super(user, orders);
     }
 
-
     public void Waiting() {
         fWaiting = true;
     }

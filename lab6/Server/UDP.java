@@ -2,6 +2,7 @@ package ru.eltex.app.lab6.Server;
 
 import java.io.IOException;
 import java.net.*;
+import java.sql.Date;
 
 /**
  * Класс рассылающий номер порта для соединения TCP по UDP
@@ -9,24 +10,26 @@ import java.net.*;
 public class UDP extends Thread {
     private byte[] buffer; //байтовый массив
     private String address;
-    private int localPort;
-    private int reserveport;
+    private int localePort;
     private volatile boolean fRun;
 
-   /* public UDP(Integer address, String broadcast){
-        this.buffer = address.toString().getBytes();
+    public UDP(Integer portTransfer, String address, int port1) {
+        this.buffer = portTransfer.toString().getBytes();
+        this.address = address;
+        this.localePort = port1;
         this.fRun = true;
-        this.address = broadcast;
-    }*/
-
-
-   public UDP (Integer portTransfer, String address, int port1, int port2){
-       this.buffer = portTransfer.toString().getBytes();
-       this.address = address;
-       this.localPort = port1;
-       this.reserveport = port2;
-       this.fRun = true;
-   }
+    }
+    public UDP(java.sql.Date date, String address, int port1) {
+        this.buffer = date.toString().getBytes();
+        this.address = address;
+        this.localePort = port1;
+        this.fRun = true;
+    }
+    public UDP(Date date, String address) {
+        this.buffer = date.toString().getBytes();
+        this.address = address;
+        this.fRun = true;
+    }
 
     /**
      * Выключение потока
@@ -41,20 +44,13 @@ public class UDP extends Thread {
         super.run();
         while (fRun){
             try (DatagramSocket datagram = new DatagramSocket()){
-                DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length, InetAddress.getByName(address), localPort);
+                DatagramPacket packet1 = new DatagramPacket(buffer, buffer.length, InetAddress.getByName(address), localePort);
                 datagram.send(packet1);
-                DatagramPacket packet2 =  new DatagramPacket(buffer, buffer.length, InetAddress.getByName(address), reserveport);
-                datagram.send(packet2);
             }catch (SocketException ex){
                 ex.printStackTrace();
             }catch (IOException e){
                 e.printStackTrace();
             }
-            /*try {
-                sleep(1000);
-            }catch (InterruptedException e){
-                e.printStackTrace();
-            }*/
         }
     }
 }

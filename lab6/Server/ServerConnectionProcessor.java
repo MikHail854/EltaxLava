@@ -11,33 +11,19 @@ import java.net.*;
  * Класс для работы в потоке для принятия заказов по TCP
  */
 
-//public class ServerConnectionProcessor implements Runnable{
 public class ServerConnectionProcessor extends Thread{
 
     private Socket socket;//сокет соединения
     private Orders<?> orders;//заказы
 
-    public ServerConnectionProcessor(Orders<?> orders, Socket socket){
-        this.orders = orders;
-        this.socket = socket;
-    }
-
     public ServerConnectionProcessor(Socket socket){
         this.socket = socket;
     }
 
-    @Override
     public void run() {
-        /*try (ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream())) {
-            Orders<?> new_orders = (Orders) inputStream.readObject();
-            int port = inputStream.readInt();
-            for (var item : new_orders.getList()){
-                synchronized (orders){
-                    orders.offer(item.getCart(), item.getCredentials(), socket.getLocalAddress(), port);
-                }
-            }*/
         try {
             DataInputStream dis = new DataInputStream(socket.getInputStream());
+            //плучает запрос
             ObjectInputStream inputStream = new ObjectInputStream(dis);
             Orders new_orders = (Orders) inputStream.readObject();
             orders = new_orders;
@@ -47,5 +33,7 @@ public class ServerConnectionProcessor extends Thread{
         }catch (ClassNotFoundException e){
             e.printStackTrace();
         }
+        Thread StatusChecker = new Thread(new StatusChecker(orders, socket, 1000));
+        StatusChecker.start();
     }
 }

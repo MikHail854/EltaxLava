@@ -3,7 +3,7 @@ package ru.eltex.app.lab4;
 import ru.eltex.app.lab2.Orders;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) /*throws InterruptedException*/ {
 
         Orders orders = new Orders();
 

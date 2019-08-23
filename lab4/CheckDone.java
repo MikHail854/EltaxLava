@@ -18,11 +18,6 @@ public class CheckDone extends ACheck {
     }
 
     public void off(){
-        /*if(fRun){
-            fRun = false;
-        } else {
-            return;
-        }*/
         this.fRun = false;
     }
 

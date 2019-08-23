@@ -21,17 +21,13 @@ public class CheckTime extends ACheck {
      * Остановка работы потока
      */
     public void off() {
-        /*if (fRun) {
-            fRun = false;
-        } else {
-            return;
-        }*/
         this.fRun = false;
     }
     public void run(){
         while (fRun){
             synchronized (orders) {
                 getOrders().checkTime();
+                getOrders().show();
             }
             try {
                 Thread.sleep(pause);

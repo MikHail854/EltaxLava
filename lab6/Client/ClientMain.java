@@ -39,7 +39,7 @@ public class ClientMain {
         Generator generate = new Generator (user, orders);
         generate.start();
 
-        ClientMain clientMain = new ClientMain(user, orders, 9992);
+        ClientMain clientMain = new ClientMain(user, orders, 9991);
         while (true) {
             System.out.println("-------------------------------");
             clientMain.ReceiverAlertUDP();
@@ -57,7 +57,7 @@ public class ClientMain {
      * Получить порт на отправку
      */
     public void ReceiverAlertUDP (){
-        DatagramPacket packet = new DatagramPacket(new byte[255], 1024);
+        DatagramPacket packet = new DatagramPacket(new byte[1024], 1024);
         try{
             socket = new DatagramSocket(this.port);
         }catch (SocketException e){

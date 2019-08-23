@@ -77,7 +77,6 @@ public class ClientMain {
         address = packet.getAddress();
         socket.close();
     }
-
     /**
      * Получение подтверждения
      */

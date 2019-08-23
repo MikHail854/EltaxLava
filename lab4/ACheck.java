@@ -8,7 +8,7 @@ abstract public class ACheck extends Thread {
 
 
     public boolean fRun = true;
-    public long pause = 3000;
+    public long pause = 1000;
     public boolean fWaiting = true;
 
     public Credentials user;

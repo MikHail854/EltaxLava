@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.UUID;
 
 
-public class Credentails implements Serializable {
+public class Credentials implements Serializable {
 
     UUID ID;
     private String firstname;
@@ -27,7 +27,7 @@ public class Credentails implements Serializable {
         this.email = scanner.nextLine();
     }*/
 
-    public Credentails(String firstname, String lastname, String middlename, String email){
+    public Credentials(String firstname, String lastname, String middlename, String email){
         ID = UUID.randomUUID();
         this.firstname = firstname;
         this.lastname = lastname;
@@ -42,5 +42,9 @@ public class Credentails implements Serializable {
         System.out.println("Firstname = " + firstname);
         System.out.println("Middlename = " + middlename);
         System.out.println("Email = " + email);
+    }
+
+    public void showShort(){
+        System.out.println(lastname+" "+firstname+"("+email+")");
     }
 }

@@ -1,6 +1,7 @@
 package ru.eltex.app.lab2;
 
 import java.io.Serializable;
+import java.net.InetAddress;
 import java.sql.Date;
 import java.util.*;
 
@@ -20,6 +21,9 @@ public class Orders <T extends Order> implements Serializable {
         this.dateOrder = createTime;
     }
 
+   public List<T> getList() {
+        return orders;
+    }
     void add (T obj){
         this.orders.add(obj);
     }
@@ -28,11 +32,33 @@ public class Orders <T extends Order> implements Serializable {
         this.orders.remove(obj);
     }
 
-    public void offer(ShoppingCart cart, Credentails user){
+   /* public void offer(ShoppingCart cart, Credentials user, InetAddress address, int port){
         Order order = new Order(cart, user);
         orders.add((T) order);
         dateOrder.put(order.getDateCreate(), (T) order);
        // cart.show_short();
+    }*/
+
+    public void offer(ShoppingCart cart, Credentials credentials, InetAddress address, int port){
+        Order order = new Order(cart, credentials, address, port);
+        orders.add((T) order);
+        dateOrder.put(order.getDateCreate(), (T) order);
+       // cart.show_short();
+    }
+
+public void offer(ShoppingCart cart, Credentials credentials, InetAddress address){
+        Order order = new Order(cart, credentials, address);
+        orders.add((T) order);
+        dateOrder.put(order.getDateCreate(), (T) order);
+       // cart.show_short();
+    }
+
+
+    public void offer(ShoppingCart cart, Credentials user){
+        Order order = new Order(cart, user);
+        orders.add((T) order);
+        dateOrder.put(order.getDateCreate(), (T) order);
+        // cart.show_short();
     }
 
     public void checkTime(){

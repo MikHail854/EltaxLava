@@ -4,7 +4,7 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
 import ru.eltex.app.lab1.Products;
-import ru.eltex.app.lab2.Credentails;
+import ru.eltex.app.lab2.Credentials;
 import ru.eltex.app.lab2.Order;
 import ru.eltex.app.lab2.OrderStatus;
 import ru.eltex.app.lab2.ShoppingCart;
@@ -37,7 +37,7 @@ public final class OrderDeserializer implements JsonDeserializer<Order> {
             }.getType();
 
             ShoppingCart<Products> cart=jDContext.deserialize(jobject.get("cart"), typecart);
-            Credentails user = new Gson().fromJson(jobject.get("user"), Credentails.class);
+            Credentials user = new Gson().fromJson(jobject.get("user"), Credentials.class);
             return new Order(id, status, dateCreate, timeWaiting, cart, user);
     }
 }

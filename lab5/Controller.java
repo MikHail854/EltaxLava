@@ -1,11 +1,10 @@
 package ru.eltex.app.lab5;
 
-import com.google.gson.internal.bind.util.ISO8601Utils;
 import ru.eltex.app.lab1.Phone;
 import ru.eltex.app.lab1.Products;
 import ru.eltex.app.lab1.Smartphone;
 import ru.eltex.app.lab1.TheTablet;
-import ru.eltex.app.lab2.Credentails;
+import ru.eltex.app.lab2.Credentials;
 import ru.eltex.app.lab2.Order;
 import ru.eltex.app.lab2.Orders;
 import ru.eltex.app.lab2.ShoppingCart;
@@ -14,7 +13,7 @@ import java.util.Scanner;
 
 public class Controller {
     public static void OrderFileTest(int choice) {
-        Credentails user = new Credentails("Михаил", "Чигуров", "Евгеньевич", "vip.moneta95@mail.ru");
+        Credentials user = new Credentials("Михаил", "Чигуров", "Евгеньевич", "vip.moneta95@mail.ru");
         Scanner scanner = new Scanner(System.in);
         ShoppingCart<Products> cart = new ShoppingCart<>();
 
@@ -68,7 +67,7 @@ public class Controller {
 
             System.out.println("Пример работы saveByID и readById" + "\n" +  "==================================================");
 
-            Credentails user2 = new Credentails("Анна", "Старкова", "Сергеевна","annastarko@yandex.ru");
+            Credentials user2 = new Credentials("Анна", "Старкова", "Сергеевна","annastarko@yandex.ru");
             Order order2 = new Order(cart, user2);
             manager.saveById(order2);
             System.out.println("Заказ из бинарного файла");

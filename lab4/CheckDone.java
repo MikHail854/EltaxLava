@@ -2,9 +2,13 @@ package ru.eltex.app.lab4;
 
 import ru.eltex.app.lab2.Orders;
 
+/**
+ *  Поток проверяет заказы по статусу "обработан"
+ *  Если заказ обнаружен в этом состоянии, заказ удаляется из списка
+ */
 public class CheckDone extends ACheck {
 
-    CheckDone(Orders orders){
+    public CheckDone(Orders<?> orders){
         super(orders);
     }
 
@@ -13,12 +17,26 @@ public class CheckDone extends ACheck {
         this.pause = pause;
     }
 
+    public void off(){
+        /*if(fRun){
+            fRun = false;
+        } else {
+            return;
+        }*/
+        this.fRun = false;
+    }
+
+    /**
+     * Метод работающий в потоке
+     */
     public void run(){
         while (fRun){
-            getOrders().checkDone();
+            synchronized (orders) {
+                getOrders().checkDone();
+            }
             try{
                 Thread.sleep(pause);
-            }catch (InterruptedException e){
+            } catch (InterruptedException e){
                 e.printStackTrace();
             }
         }

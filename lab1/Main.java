@@ -1,6 +1,6 @@
 package ru.eltex.app.lab1;
 
-import ru.eltex.app.lab2.Credentails;
+import ru.eltex.app.lab2.Credentials;
 import ru.eltex.app.lab2.Orders;
 import ru.eltex.app.lab2.ShoppingCart;
 
@@ -14,7 +14,7 @@ public class Main {
          */
 
         Scanner scanner = new Scanner(System.in);
-        Credentails user = new Credentails("Анна","Старкова","Сергеевна","annastarko@yandex.com");
+        Credentials user = new Credentials("Анна","Старкова","Сергеевна","annastarko@yandex.com");
         System.out.println("\nМеню:\n1.Телефон\n2.Смартфон\n3.Планшет\n");
         int choice = scanner.nextInt();
         if (choice == 1) {

@@ -16,7 +16,8 @@ import java.net.*;
  */
 
 public class ClientMain {
-    private int PORT = 9999;//порт прослушивания основной
+    private int port;//порт прослушивания основной
+    private static final int CONFIRMPORT = 7777;
     private int acceptport;//свободный порт для получения подтверждения
     private int portTCP;//порт на установку TCP соединения
     private InetAddress address;//адресс отправки по TCP
@@ -24,7 +25,8 @@ public class ClientMain {
     private Orders<?> orders;//заказы
     private DatagramSocket socket;
 
-    private ClientMain(Credentials user, Orders<?> orders){
+    private ClientMain(Credentials user, Orders<?> orders, int port){
+        this.port = port;
         this.user = user;
         this.orders = orders;
         this.acceptport = 0;
@@ -37,19 +39,12 @@ public class ClientMain {
         Generator generate = new Generator (user, orders);
         generate.start();
 
-        ClientMain clientMain = new ClientMain(user, orders);
+        ClientMain clientMain = new ClientMain(user, orders, 9992);
         while (true) {
-            //clientMain.udpReceivePort();
-//            clientMain.sendTCP();
-//            generate.setWait();
-//            clientMain.udpReceiveAccept();
-//            synchronized (generate){
-//                generate.notify();
-//            }
+            System.out.println("-------------------------------");
             clientMain.ReceiverAlertUDP();
             clientMain.ConnectTCP();
-            generate.Waiting();
-
+            clientMain.AcceptAlertUDP();
             try {
                 Thread.sleep(1000);
             }catch (InterruptedException e){
@@ -62,10 +57,9 @@ public class ClientMain {
      * Получить порт на отправку
      */
     public void ReceiverAlertUDP (){
-        //byte[] buf = new byte[255];
         DatagramPacket packet = new DatagramPacket(new byte[255], 1024);
         try{
-            socket = new DatagramSocket(PORT);
+            socket = new DatagramSocket(this.port);
         }catch (SocketException e){
                 e.printStackTrace();
         }
@@ -77,7 +71,7 @@ public class ClientMain {
         }
         byte[] data = packet.getData();
         String s = new String(data, 0, packet.getLength());
-        portTCP = Integer.parseInt(s);
+        this.portTCP = Integer.parseInt(s);
 
         System.out.println("Порт из оповещение UDP: " + portTCP);
         address = packet.getAddress();
